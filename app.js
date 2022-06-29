@@ -8,6 +8,8 @@ const path = require("path");
 const {notFoundHandler, defaultError} = require("./middlewares/common/errorHandler");
 const loginRouter = require("./router/loginRouter");
 const registerRouter = require("./router/registerRouter");
+const forgetPassRouter = require("./router/forgetPassRouter");
+const recoverPassRouter = require("./router/recoverPassRouter");
 
 // configuration 
 const app = express();
@@ -35,6 +37,8 @@ app.use(express.static(path.join(__dirname, "public")));
 // routing setup 
 app.use("/", loginRouter);
 app.use("/register", registerRouter);
+app.use("/forget-pass", forgetPassRouter);
+app.use("/recover-pass", recoverPassRouter);
 
 // 404 error handler 
 app.use(notFoundHandler);
