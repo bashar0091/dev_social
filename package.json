@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "SET NODE_ENV=development & nodemon app.js"
+    "start": "SET NODE_ENV=development & nodemon app.js",
+    "prod": "SET NODE_ENV=production & node app.js"
   },
   "author": "Awal Bashar",
   "license": "ISC",

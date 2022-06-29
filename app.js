@@ -5,7 +5,9 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 // internal imports 
-const {notFoundHandler} = require("./middlewares/common/errorHandler");
+const {notFoundHandler, defaultError} = require("./middlewares/common/errorHandler");
+const loginRouter = require("./router/loginRouter");
+const registerRouter = require("./router/registerRouter");
 
 // configuration 
 const app = express();
@@ -30,8 +32,15 @@ app.set("view engine", "ejs");
 // static folder setup 
 app.use(express.static(path.join(__dirname, "public")));
 
-// 404 eroor handler 
+// routing setup 
+app.use("/", loginRouter);
+app.use("/register", registerRouter);
+
+// 404 error handler 
 app.use(notFoundHandler);
+
+//defaul error handler
+app.use(defaultError);
 
 // port listening 
 app.listen(process.env.PORT, ()=> {
