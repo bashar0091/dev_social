@@ -10,6 +10,7 @@ const loginRouter = require("./router/loginRouter");
 const registerRouter = require("./router/registerRouter");
 const forgetPassRouter = require("./router/forgetPassRouter");
 const recoverPassRouter = require("./router/recoverPassRouter");
+const dashboardRouter = require("./router/dashboardRouter");
 
 // configuration 
 const app = express();
@@ -39,6 +40,7 @@ app.use("/", loginRouter);
 app.use("/register", registerRouter);
 app.use("/forget-pass", forgetPassRouter);
 app.use("/recover-pass", recoverPassRouter);
+app.use("/dashboard", dashboardRouter);
 
 // 404 error handler 
 app.use(notFoundHandler);
