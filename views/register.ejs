@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email" name="email" required>
+            <input type="email" class="form-control" placeholder="Email" name="email" required> 
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -24,15 +24,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password" required>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Retype password" required>
+            <input type="password" class="form-control" placeholder="Password" name="password" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -64,23 +56,34 @@
   <!-- /.register-box -->
 
   <% if(typeof alert != 'undefined') { %>
-    <% alert.forEach(function(error) { %>
-      <script>
+    <% alert.forEach(function (error) { %>
+    <script>
+      setTimeout(() => {
         $(document).Toasts('create', {
           class: 'bg-danger',
-          title: 'Email is not valid',
+          title: `<%= error.msg %>`,
         })
-      </script>
+      }, 500);
+    </script>
     <% }) %>
   <% } %>
 
 
-  <script>
-    $(document).Toasts('create', {
-      class: 'bg-danger',
-      title: 'Email is not valid',
-    })
-  </script>
+  <%if(typeof alert != "undefined") {%>
+    <script>
+      var Toast = Swal.mixin({
+        toast: true,
+        position: 'center-top',
+        showConfirmButton: false,
+        timer: 5000
+      });
+  
+        Toast.fire({
+          icon: 'error',
+          title: 'Registeration Failed'
+        })
+   </script>
+  <% } %>
 </div>
 
 

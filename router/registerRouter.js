@@ -3,14 +3,14 @@ const express = require("express");
 const { registerController } = require("../controller/registerController");
 const {
   peopleValidation,
-  validationError,
-} = require("../middlewares/common/registerHandler");
+  peopleErrorCatch,
+} = require("../middlewares/formValidation");
 
 const router = express.Router();
 
 router.get("/", registerController);
 
-// form submit
-router.post("/", peopleValidation, validationError);
+// register form validator with submit
+router.post("/", peopleValidation, peopleErrorCatch);
 
 module.exports = router;
