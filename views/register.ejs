@@ -84,6 +84,22 @@
         })
    </script>
   <% } %>
+
+  <%if(!typeof ba) {%>
+    <script>
+      var Toast = Swal.mixin({
+        toast: true,
+        position: 'center-top',
+        showConfirmButton: false,
+        timer: 5000
+      });
+  
+        Toast.fire({
+          icon: 'success',
+          title: 'Registeration Succesful'
+        })
+   </script>
+  <% } %>
 </div>
 
 

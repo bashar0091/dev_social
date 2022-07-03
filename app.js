@@ -30,7 +30,7 @@ mongoose
 
 // request parser
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 //view engine setup
 app.set("view engine", "ejs");

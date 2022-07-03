@@ -1,4 +1,5 @@
 const { check, validationResult } = require("express-validator");
+const { addUser } = require("../controller/registerController");
 
 // check validation
 const peopleValidation = [
@@ -17,6 +18,10 @@ function peopleErrorCatch(req, res, next) {
     const alert = error.array();
     res.render("register", {
       alert,
+    });
+  } else {
+    res.render("register", {
+      ba: "succes",
     });
   }
 }
